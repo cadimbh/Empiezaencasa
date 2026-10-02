@@ -46,23 +46,7 @@
     if (!url) { openDialog(checkoutDialog); return; }
     if (button.dataset.redirecting === 'true') return;
     button.dataset.redirecting = 'true';
-    try {
-      if (typeof window.fbq === 'function') {
-        window.fbq('track', 'InitiateCheckout', {
-          value: price,
-          currency: 'MXN',
-          content_name: 'Primer Negocio - 25 Comidas + Bono',
-          content_ids: ['primer-negocio-25-comidas'],
-          content_type: 'product',
-          num_items: 1,
-        });
-      }
-    } catch { /* Tracking must never prevent the payment redirect. */ }
-    // Short, bounded delay gives the pixel time to send without blocking purchase.
-    setTimeout(() => {
-      button.dataset.redirecting = 'false';
-      location.assign(url);
-    }, 180);
+    location.assign(url);
   }));
   const previews = {
     ingredients: { src: 'assets/recipe-ingredients.webp', alt: 'Ingredientes y rendimiento de tostadas de tinga', title: 'Ingredientes y porciones' },

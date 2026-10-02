@@ -31,13 +31,12 @@ Todos os botões usam esse mesmo link. Os parâmetros de campanha UTM e `fbclid`
 Pixel Meta **1756938315538597**:
 
 - `PageView`: uma visita quando a página é carregada.
-- `InitiateCheckout`: clique em qualquer botão de compra, com valor 100 e moeda MXN.
-- Cliques repetidos durante o redirecionamento não duplicam o evento.
+- Os botões de compra redirecionam imediatamente para o checkout, sem enviar eventos ao Pixel.
 - O redirecionamento funciona mesmo se o rastreamento for bloqueado.
 
-A página de vendas não dispara `Purchase`. A compra confirmada precisa ser registrada pelo checkout após aprovação do pagamento. A configuração da Xpag não foi alterada.
+A página de vendas envia apenas `PageView`, sem eventos de início de checkout ou compra. A compra confirmada precisa ser registrada pelo checkout após aprovação do pagamento. A configuração da Xpag não foi alterada.
 
-Para verificar após publicar, abra a URL da página em Testar Eventos no Gerenciador de Eventos da Meta. Entre na página e clique em um botão de compra. Confira `PageView` e `InitiateCheckout`; bloqueadores de anúncio podem impedir o envio.
+Para verificar após publicar, abra a URL da página em Testar Eventos no Gerenciador de Eventos da Meta. Confira `PageView`; clicar em comprar apenas redireciona para a Xpag. Bloqueadores de anúncio podem impedir o envio.
 
 Ao trocar o ID no futuro, atualize também a imagem de fallback `<noscript>` em `index.html`.
 
