@@ -158,7 +158,7 @@
   document.querySelectorAll('[data-preview]').forEach(b=>b.addEventListener('click',()=>{
     const recipe=b.dataset.preview==='recetario';$('preview-title').textContent=recipe?'Páginas reales del recetario':'Tu primera ruta de pedidos';
     $('preview-content').innerHTML=recipe?'<div class="preview-pages"><img src="/assets/recipe-ingredients.webp" alt="Página real con tostadas de tinga, ingredientes, tiempo y porciones"><img src="/assets/recipe-preparation.webp" alt="Página real con preparación y costos estimativos de tostadas de tinga"></div>':'<div class="preview-bonus"><img src="/assets/bonus-cover.webp" alt="Portada real del bono de ventas"><div><h3>Un platillo.<br>Una zona.<br>Una hora.</h3><p>Una ruta práctica para empezar con un menú pequeño y pedidos cerca de casa.</p><ul><li>Elige un plato y organiza tu primer lote.</li><li>Ofrece por WhatsApp o en negocios cercanos.</li><li>Adapta los mensajes y organiza los pedidos.</li></ul><p>El bono completo tiene 14 páginas y está incluido desde el inicio.</p></div></div>';
-    $('preview-dialog').showModal();updateMobile();
+    $('preview-dialog').showModal();$('preview-close').focus({preventScroll:true});$('preview-dialog').scrollTop=0;updateMobile();
   }));
   $('preview-close').addEventListener('click',()=>{$('preview-dialog').close();updateMobile();});
   $('preview-dialog').addEventListener('close',updateMobile);
