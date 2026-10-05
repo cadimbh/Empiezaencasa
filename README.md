@@ -51,7 +51,7 @@ Configure também preço, entrega dos arquivos, suporte e condições de compra 
 - Opções: 6, 12 ou 24 porções e 1, 3 ou 5 entregas por semana.
 - Os gráficos mostram vendas, custo e ganho bruto, assumindo venda de todas as porções e custos proporcionais. Trabalho, entrega, impostos e comissões não estão descontados. Não é promessa de lucro.
 
-Os PDFs completos ficam fora desta pasta pública. Entregue-os pela sua plataforma de venda.
+Na página original, a compra continua sendo feita pelo checkout. O novo fluxo `/recibe` disponibiliza os dois PDFs completos livremente antes de uma contribuição voluntária.
 
 ## Arquivos principais
 
@@ -66,3 +66,7 @@ Os PDFs completos ficam fora desta pasta pública. Entregue-os pela sua platafor
 Para mudar o preço, atualize a configuração e os textos de $100 no HTML. O preço de $65 no simulador é o da porção de comida, não o do PDF.
 
 Para visualizar localmente com Python: `python -m http.server 4173`. Abra `http://localhost:4173`.
+
+## Novo funil: entrega primeiro, contribuição opcional
+
+A rota `/recibe` preserva a página original. Leia `FUNIL-RECIBE.md` para ativar SPEI/OXXO, validar os pagamentos e configurar a audiência de remarketing. Sem as credenciais no servidor, os arquivos ficam acessíveis e os botões de pagamento permanecem desativados, com um aviso honesto.

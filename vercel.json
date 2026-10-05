@@ -10,6 +10,7 @@
       { "key": "Cache-Control", "value": "public, max-age=86400" }
     ] }
   ],
+  "rewrites": [{ "source": "/recibe", "destination": "/recibe/index.html" }],
   "cleanUrls": true,
   "trailingSlash": false
 }
