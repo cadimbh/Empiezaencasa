@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Primero recibe. Después decide. | Primer Negocio</title>
+  <meta name="description" content="Recibe 25 comidas económicas para vender desde casa y una ruta sencilla para ofrecerlas. Explora el material y, si te ayuda, apoya con una aportación voluntaria.">
+  <meta name="theme-color" content="#fff9e9"><link rel="icon" href="/assets/favicon.svg">
+  <link rel="stylesheet" href="/recibe/recibe.css">
+  <script src="/site-config.js" defer></script><script src="/recibe/tracking.js" defer></script>
+  <script src="/recibe/recibe.js" defer></script>
+</head>
+<body>
+  <header class="top"><a class="brand" href="/recibe" aria-label="Primer Negocio, inicio">PRIMER<span>NEGOCIO<span class="dot">.</span></span></a><span class="top-note">Hecho para empezar en casa</span><button class="small-button" id="my-material" hidden>Mi material ↗</button></header>
+  <main class="layout">
+    <section class="story" aria-labelledby="hero-title">
+      <span class="label">TU COCINA. TU PRIMER PASO.</span>
+      <h1 id="hero-title">PRIMERO<br>RECIBE.<br><span>Después decide.</span></h1>
+      <p class="intro">Ideas que se antojan. Una forma sencilla de empezar a ofrecer comida desde casa.</p>
+      <div class="food"><img src="/assets/hero-tostadas.webp" alt="Tostadas con pollo, aguacate y queso, listas para servir" fetchpriority="high"><span class="food-tag">25 ideas<br><b>para empezar</b></span></div>
+      <div class="included"><span><b>25</b> recetas con costos orientativos</span><span><b>+</b> ruta para conseguir tus primeros pedidos</span></div>
+      <p class="promise">Acceso libre al material. La aportación es opcional.</p>
+    </section>
+    <section class="conversation" aria-label="Recibe tu material paso a paso">
+      <div class="chat-top"><div class="avatar" aria-hidden="true">PN<span>✦</span></div><div><b>Primer Negocio</b><span>Asistente virtual · guía paso a paso</span></div><span class="chat-icon" aria-hidden="true">↗</span></div>
+      <div class="steps" aria-label="Progreso"><span id="step1" class="active">01 · Recibe</span><span id="step2">02 · Explora</span><span id="step3">03 · Decide</span></div>
+      <div class="chat-body" id="chat-body">
+        <div id="messages"></div>
+        <div id="panel" aria-live="polite"></div>
+      </div>
+      <div class="chat-bottom"><span>Sin registro. Sin compromiso.</span><button id="help-open" class="text-button" aria-expanded="false" aria-controls="help">Tengo una duda</button></div>
+      <div id="help" hidden><details><summary>¿Qué voy a recibir?</summary><p>Un recetario con 25 comidas, ingredientes, preparación, tiempo, porciones y números estimativos. También una ruta de ventas con ejemplos para ofrecer tus platos.</p></details><details><summary>¿Necesito experiencia?</summary><p>Puedes empezar con una sola receta y un lote pequeño por encargo. Revisa tus costos y practica la preparación antes de ofrecerla.</p></details><details><summary>¿Es obligatorio aportar?</summary><p>No. Puedes guardar y usar el material aunque decidas no aportar. No hay una deuda ni un cobro posterior.</p></details><details><summary>¿Cómo lo guardo en mi celular?</summary><p>Toca “Abrir o descargar”. En el visor del archivo, elige descargar o guardar. Puedes volver a esta página para encontrar los enlaces.</p></details><details><summary>¿El pago es una suscripción?</summary><p>No. Es una aportación única. SPEI se paga desde tu banco; OXXO se paga con la referencia generada en una tienda.</p></details></div>
+    </section>
+  </main>
+  <footer><span>PRIMER NEGOCIO · Empieza en casa</span><p>Los costos y márgenes del material son estimativos. Varían por región, ingredientes, empaque y canal de venta. No se garantizan ingresos.</p><button class="text-button" id="privacy-open">Privacidad y uso</button><div id="privacy" hidden><p>Esta página guarda tu avance y las instrucciones de tu aportación en este navegador. Utiliza el Pixel de Meta para medir visitas y acceso al material; puedes bloquearlo desde tu navegador. XPag procesa los pagos y su estado. No pedimos nombre, teléfono ni correo en este flujo. El acceso al material no depende del rastreo ni de una aportación. Los archivos son para uso personal; no está permitida su reventa.</p><button class="text-button" id="clear-local">Borrar mi avance en este dispositivo</button></div></footer>
+  <noscript><div class="no-script">Aquí está tu material: <a href="/recibe/material/25-comidas.pdf">Recetario de 25 comidas</a> y <a href="/recibe/material/ruta-de-pedidos.pdf">Ruta de pedidos</a>. Activa JavaScript si deseas usar la guía o realizar una aportación.</div></noscript>
+</body></html>
