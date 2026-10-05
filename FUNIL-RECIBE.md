@@ -12,7 +12,7 @@ Quem não contribuir mantém acesso ao mesmo material. Os arquivos nesta rota s�
 
 ## Ativação na Vercel
 
-O código está pronto para receber credenciais, mas **nenhum pagamento real foi criado ou testado nesta implementação**. É necessário configurar as variáveis e validar os dois meios com a conta do vendedor antes de enviar tráfego.
+As quatro variáveis abaixo estão configuradas no ambiente privado de produção da Vercel desde 5 de outubro de 2026. Foram geradas cobranças reais pendentes de SPEI (100 MXN) e OXXO (200 MXN), verificadas no extrato da conta do vendedor; as consultas autenticadas retornaram pendente. Nenhum pagamento foi efetuado nesses testes. A confirmação após liquidação ainda exige um pagamento real pelo vendedor.
 
 Em Settings → Environment Variables, adicione para o ambiente de produção:
 
@@ -35,7 +35,7 @@ Configuração Vercel: Framework Other, raiz deste projeto, sem comando de build
 - OXXO: o mesmo endpoint, `method: OXXO`, `generateCheckout: false`. `payerData` é opcional segundo a documentação; não se fabrica um e-mail para o visitante.
 - Os valores vêm de uma lista permitida no servidor. O visitante não pode alterar o total para outro valor enviando uma requisição personalizada.
 - Consulta autenticada: `GET /consult-transaction?request_number=...`. O token criptografado vincula referência, valor e sessão. Somente `type: cashin`, `status: confirmed`, referência e valor correspondentes podem confirmar uma contribuição.
-- As instruções e o avanço ficam no navegador. Ao voltar, a pessoa pode consultar sua referência pendente. Se apagar os dados do navegador ou usar outro dispositivo, não recupera automaticamente esse histórico.
+- As instruções e o avanço ficam no navegador. A versão v2 migra o histórico antigo sem apagar cookies. Ao voltar, a pessoa escolhe livremente o valor e SPEI/OXXO. A mesma combinação reutiliza uma referência pendente vigente; outra combinação pode gerar uma nova referência. O histórico preserva as anteriores e a tela de pagamento permite mudar de valor ou método. Mudar não cancela uma cobrança já criada; não pague duas referências para a mesma contribuição. Se apagar os dados do navegador ou usar outro dispositivo, não recupera automaticamente esse histórico.
 - A consulta automática ocorre enquanto a página está visível, a cada 20 segundos, por até 4 minutos por sessão de exibição. Depois, há consulta manual. OXXO pode levar mais tempo. Não foi implementado um banco de dados ou um webhook próprio; os registros financeiros permanecem na XPag.
 - Sem envio automático de mensagens, e-mails ou lembretes depois de fechar a página. Remarketing é uma campanha separada a configurar na Meta.
 - Falha ou timeout ao gerar instruções exige verificar a XPag antes de repetir: a API consultada não documenta garantia de idempotência para CLABE dinâmica e OXXO. Não há repetição automática de geração. A página reutiliza a referência guardada e evita cliques simultâneos.
@@ -69,6 +69,10 @@ Na Meta, crie um público de visitantes que geraram `MaterialAccess` na rota `/r
 
 Testes locais com respostas simuladas validaram as seis combinações de valor/meio, rejeição de valores indevidos, origem/CSRF, token falsificado/vencido e pagamentos com referência, moeda ou valor incorretos. Esses testes não substituem a homologação na conta real.
 
-A tentativa de homologação com as credenciais públicas indicadas em `/docs/sandbox` foi recusada pela API com `invalid_account`. Nenhuma cobrança real foi criada. A versão de produção também bloqueia as credenciais públicas de sandbox e respostas marcadas `sandbox: true`, para não confundir teste com contribuição recebida.
+A tentativa inicial com as credenciais públicas de sandbox foi recusada pela API com `invalid_account`; os testes posteriores usaram a credencial privada do vendedor. A versão de produção bloqueia credenciais públicas de sandbox e respostas marcadas `sandbox: true`, para não confundir teste com contribuição recebida.
+
+## Visual e sequência da conversa
+
+Capas reais do produto e do bônus, fotografias de comida e prévias de páginas apresentam o conteúdo antes da conversa. A guia pergunta o tipo de comida, entrega os dois materiais, oferece três passos e uma mensagem editável para divulgar uma primeira oferta, e só depois pede apoio voluntário. Há acesso direto ao material em todas as etapas. Um exemplo de lote mostra custo e ganho bruto estimativos, sem promessa de renda. Os botões SPEI/OXXO só ficam indisponíveis durante uma geração em andamento ou quando a configuração do servidor está indisponível; uma cobrança antiga não bloqueia a escolha.
 
 Documentação consultada: https://xpag.global/docs/autenticacao, https://xpag.global/docs/cobrancas e https://xpag.global/docs/status.
